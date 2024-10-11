@@ -3,38 +3,42 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CalculatorApp.MainPage">
 
-    <StackLayout Padding="20">
+    <ScrollView>
+        <StackLayout Padding="20">
 
-        <!-- Titel -->
-        <Label Text="Rekenmachine" FontSize="24" HorizontalOptions="Center" />
+            <!-- Titel -->
+            <Label Text="Calculator" FontSize="24" HorizontalOptions="Center" />
 
-        <!-- Invoer velden -->
-        <Entry x:Name="Input1" Placeholder="Voer het eerste getal in" Keyboard="Numeric" />
-        <Entry x:Name="Input2" Placeholder="Voer het tweede getal in" Keyboard="Numeric" />
+            <!-- Invoer velden -->
+            <Entry x:Name="Input1" Placeholder="Enter first number" Keyboard="Numeric" />
+            <Entry x:Name="Input2" Placeholder="Enter second number" Keyboard="Numeric" />
 
-        <!-- Grid voor de knoppen -->
-        <Grid ColumnSpacing="10" RowSpacing="10" Margin="0,20,0,0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
+            <!-- Grid voor de knoppen -->
+            <Grid ColumnSpacing="10" RowSpacing="10" Margin="0,20,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
 
-            <!-- Knoppen voor berekeningen -->
-            <Button x:Name="CalculateSum" Text=" + " Grid.Row="0" Grid.Column="0" Clicked="OnCalculateSumClicked" />
-            <Button x:Name="CalculateDifference" Text=" - " Grid.Row="0" Grid.Column="1" Clicked="OnCalculateDifferenceClicked" />
-            <Button x:Name="CalculateProduct" Text=" * " Grid.Row="1" Grid.Column="0" Clicked="OnCalculateProductClicked" />
-            <Button x:Name="CalculateQuotient" Text=" / " Grid.Row="1" Grid.Column="1" Clicked="OnCalculateQuotientClicked" />
-            <Button x:Name="CalculateReminder" Text=" % " Grid.Row="2" Grid.Column="0" Clicked="OnCalculateRemainderClicked" />
+                <!-- Knoppen voor berekeningen -->
+                <Button x:Name="CalculateSum" Text=" + " Grid.Row="0" Grid.Column="0" Clicked="OnCalculate" />
+                <Button x:Name="CalculateDifference" Text=" - " Grid.Row="0" Grid.Column="1" Clicked="OnCalculate" />
+                <Button x:Name="CalculateProduct" Text=" * " Grid.Row="0" Grid.Column="2" Clicked="OnCalculate" />
+                <Button x:Name="CalculateQuotient" Text=" / " Grid.Row="0" Grid.Column="3" Clicked="OnCalculate" />
+                <Button x:Name="CalculateRemainder" Text=" % " Grid.Row="0" Grid.Column="4" Clicked="OnCalculate" />
+                <Button x:Name="CalculateAll" Text=" All " Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" Clicked="CalculateAll_Clicked" />
+            </Grid>
 
-        </Grid>
+            <!-- Label voor de uitkomst -->
+            <Label x:Name="ResultLabel" Text="De uitkomst verschijnt hier" FontSize="18" HorizontalOptions="Center" Margin="15" />
 
-        <!-- Label voor de uitkomst -->
-        <Label x:Name="ResultLabel" Text="De uitkomst verschijnt hier" FontSize="18" HorizontalOptions="Center" />
-
-    </StackLayout>
+        </StackLayout>
+    </ScrollView>
 </ContentPage>
